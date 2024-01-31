@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingASongDataService", "SingASongDataService\SingASongDataService.csproj", "{CBCF898D-6E27-49E4-8362-1357B108A7C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBCF898D-6E27-49E4-8362-1357B108A7C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCF898D-6E27-49E4-8362-1357B108A7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCF898D-6E27-49E4-8362-1357B108A7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCF898D-6E27-49E4-8362-1357B108A7C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8309ED7-F691-40D2-80F3-6C3381541F22}
+	EndGlobalSection
+EndGlobal
