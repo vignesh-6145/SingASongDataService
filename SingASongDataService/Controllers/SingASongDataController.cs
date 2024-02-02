@@ -22,7 +22,8 @@ namespace SingASongDataService.Controllers
         [Route("Data/Tracks/{TrackID}")]
         public Track GetTrack(int TrackID)
         {
-            return trackRepository.GetTrack(TrackID);
+            Track trck = trackRepository.GetTrack(TrackID);
+            return trck;
         }
         //GetSongs
 
@@ -36,7 +37,7 @@ namespace SingASongDataService.Controllers
         /*  Write Operations  */
         //Add A Song
         [HttpPost]
-        [Route("Data/Tracks")]
+        [Route("Data/AddTrack")]
         public Track AddTrack([FromBody]Track track)
         {
             return trackRepository.AddTrack(track);
@@ -44,7 +45,7 @@ namespace SingASongDataService.Controllers
         }
         //Update A Song
         [HttpPut]
-        [Route("Data/Tracks")]
+        [Route("Data/UpdateTrack")]
         public Track UpdateTrack([FromBody]Track track)
         {
             return trackRepository.UpdateTrack(track); 
@@ -57,5 +58,7 @@ namespace SingASongDataService.Controllers
         {
             return trackRepository.DeleteTrack(TrackID);
         }
+
+
     }
 }
