@@ -1,64 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using SingASongDataService.Data;
 using SingASongDataService.Models;
 using SingASongDataService.Models.ViewModels;
+using System.Net;
 
 namespace SingASongDataService.Controllers
 {
-   //sd/de
     public class SingASongDataController : Controller
     {
-        //Dummy Data to Test API's
-        IEnumerable<ShoppingItemViewModel> tracks;
-        MockTrackRepository trackRepository;
-        
+        TrackRepository trackRepository;
+
         public SingASongDataController()
         {
-            trackRepository = new MockTrackRepository();
-
+            this.trackRepository = new TrackRepository();
         }
-        /* Read Operations */
-        // GetASong
+        public IActionResult Index()
+        {
+            return View();
+        }
         [HttpGet]
         [Route("Data/Tracks/{TrackID}")]
-        public Track GetTrack(int TrackID)
-        {
+        public IActionResult GetTrack(int TrackID)
+        { 
             Track trck = trackRepository.GetTrack(TrackID);
-            return trck;
+            if(trck == null)
+            {
+                return NotFound();
+                
+            }
+            return Ok(trck);
         }
-        //GetSongs
 
         [HttpGet]
         [Route("Data/Tracks/GetAllTracks")]
-        public IEnumerable<Track> GetAllTracks()
+        public IActionResult GetAllTracks()
         {
-            return trackRepository.GetTracks();
+            return Ok(trackRepository.GetTracks());
         }
 
-        /*  Write Operations  */
-        //Add A Song
-        [HttpPost]
-        [Route("Data/AddTrack")]
-        public Track AddTrack([FromBody]Track track)
-        {
-            return trackRepository.AddTrack(track);
-            
-        }
-        //Update A Song
-        [HttpPut]
-        [Route("Data/UpdateTrack")]
-        public Track UpdateTrack([FromBody]Track track)
-        {
-            return trackRepository.UpdateTrack(track); 
-        }
-
-        //Delete A Song
-        [HttpDelete]
-        [Route("Data/Tracks/{TrackID}")]
-        public Track DeleteTrack(int TrackID)
-        {
-            return trackRepository.DeleteTrack(TrackID);
-        }
-
-
+       
     }
 }
