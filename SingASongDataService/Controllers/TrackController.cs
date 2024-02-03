@@ -7,11 +7,11 @@ using System.Net;
 
 namespace SingASongDataService.Controllers
 {
-    public class SingASongDataController : Controller
+    public class TrackController : Controller
     {
         TrackRepository trackRepository;
 
-        public SingASongDataController()
+        public TrackController()
         {
             this.trackRepository = new TrackRepository();
         }
