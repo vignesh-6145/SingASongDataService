@@ -4,14 +4,14 @@ using System.Reflection.PortableExecutable;
 
 namespace SingASongDataService.Models.ViewModels
 {
-    public class MockTrackRepository : ITrackRepository
+    public class MockTrackRepository 
     {
-        private List<Track> Tracks;
+        private List<ViewTrack> Tracks;
 
         public MockTrackRepository()
         {
             var serializer = new JsonSerializer();
-            this.Tracks = new List<Track>();
+            this.Tracks = new List<ViewTrack>();
             using (var streamReader = new StreamReader(@"C:\Users\bandla.vignesh\source\repos\SingASongDataService\SingASongDataService\Data\DummyData.json"))
             using (var textReader = new JsonTextReader(streamReader))
             {
@@ -22,9 +22,9 @@ namespace SingASongDataService.Models.ViewModels
                 }
             }
         }
-        private Track ConvertToTrack(JObject obj)
+        private ViewTrack ConvertToTrack(JObject obj)
         {
-            Track track = new Track();
+            ViewTrack track = new ViewTrack();
             track.Name = (string)obj["Name"];
             track.TrackId = int.Parse((string)obj["TrackID"]);
             track.Album = (string)obj["Album"];
@@ -37,17 +37,17 @@ namespace SingASongDataService.Models.ViewModels
 
         }
 
-        public Track GetTrack(int Id)
+        public ViewTrack GetTrack(int Id)
         {
             return Tracks.Where(trck => trck.TrackId == Id).First();
         }
 
-        public IEnumerable<Track> GetTracks()
+        public IEnumerable<ViewTrack> GetTracks()
         {
             return Tracks;
         }
 
-        public Track DeleteTrack(int id)
+        public ViewTrack DeleteTrack(int id)
         {
             var track = Tracks.Where(t => t.TrackId == id).FirstOrDefault();
             if (track == null)
@@ -55,7 +55,7 @@ namespace SingASongDataService.Models.ViewModels
             Tracks.Remove(track);
             return track;
         }
-        public Track UpdateTrack(Track Track)
+        public ViewTrack UpdateTrack(ViewTrack Track)
         {
             var track = Tracks.Where(t => t.TrackId == Track.TrackId).FirstOrDefault();
             if (track == null)
@@ -64,7 +64,7 @@ namespace SingASongDataService.Models.ViewModels
             Tracks.Add(Track);
             return Track;
         }
-        public Track AddTrack(Track Track)
+        public ViewTrack AddTrack(ViewTrack Track)
         {
             if(Track.TrackId == 0)
             {

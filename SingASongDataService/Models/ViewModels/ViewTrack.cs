@@ -1,6 +1,6 @@
 ﻿namespace SingASongDataService.Models.ViewModels
 {
-    public class ShoppingItemViewModel
+    public class ViewTrack
     {
         public int TrackId { get; set; }
         public string Name { get; set; }

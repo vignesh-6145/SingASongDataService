@@ -1,4 +1,6 @@
-
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SingASongDataService.Data;
 namespace SingASongDataService
 {
     public class Program
@@ -13,7 +15,6 @@ namespace SingASongDataService
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

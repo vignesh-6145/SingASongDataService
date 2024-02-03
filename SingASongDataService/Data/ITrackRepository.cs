@@ -1,6 +1,8 @@
-﻿namespace SingASongDataService.Models.ViewModels
+﻿using SingASongDataService.Models.ViewModels;
+
+namespace SingASongDataService.Data
 {
-    public interface ITrackRepositoryDummy
+    public interface ITrackRepository
     {
         ViewTrack GetTrack(int _);
         IEnumerable<ViewTrack> GetTracks();
