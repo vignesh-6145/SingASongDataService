@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SingASongDataService.Models
 {
-    [Keyless]
+
+    [PrimaryKey(nameof(CartId), nameof(TrackId))]
     public class CartTrack
     {
-        
+
         [Required]
         public int CartId { get; set; } 
         public Cart Cart { get; set; } = null!;
